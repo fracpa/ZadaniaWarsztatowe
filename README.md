@@ -12,7 +12,7 @@ wejdzie klikając w kafelek Addresses po zalogowaniu (adres, na którym powinni�
 kliknie w + Create new address,
 wypełni formularz New address - dane powinny być pobierane z tabeli Examples w Gherkinie (alias, address, city, zip/postal code, country, phone),
 sprawdzi czy dane w dodanym adresie są poprawne.
-#Dodatkowe kroki dla chętnych:
+# Dodatkowe kroki dla chętnych:
 
 usunie powyższy adres klikając w "delete",
 sprawdzi czy adres został usunięty.
@@ -30,8 +30,8 @@ wybierze metodę odbioru - PrestaShop "pick up in store",
 wybierze opcję płatności - Pay by Check,
 kliknie na "order with an obligation to pay",
 zrobi screenshot z potwierdzeniem zamówienia i kwotą.
-# Zadanie warsztatowe 2 (dowolny sposób)
-Dodatkowe kroki dla chętnych:
+
+# Dodatkowe kroki dla chętnych:
 
 Wejdź w historię zamówień i detale (najpierw kliknij w użytkownika zalogowanego, później kafelek),
 sprawdź czy zamówienie znajduje się na liście ze statusem "Awaiting check payment" i kwotą taką samą jak na zamówieniu dwa kroki wcześniej.
