@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
 public class ShoppingSteps {
 
     private WebDriver driver;
@@ -47,18 +49,31 @@ public class ShoppingSteps {
         sizeproduct.sendKeys(size);
 
    }
- // @And("User chose (.*) products$")
-  //  public void choseCountProducts(String count){
-   //     WebElement countProduct=driver.findElement()
-//  }
-  //  And  User add products to the shopping card
- //   And  User click checkout
- //   And  User confirms address
-  //  And User chose Prestashop "pick up in store"
-  //  And  User chose Pay by Check
-   // And  User clicks "order with an obligation to pay"
-   // Then Save a screenshot of the order confirmation and the amount
-   // And  Dodatkowe
+ @And("User chose (.*) products$")
+  public void choseCountProducts(String count){
+     WebElement countProduct=driver.findElement(By.id("quantity_wanted"));
+     //countProduct.click();
+     countProduct.clear();
+     countProduct.sendKeys(count);
+ }
+  @And("User add products to the shopping card$")
+    public void addProduct(){
+        WebElement addButtom =driver.findElement(By.xpath("//button[@data-button-action='add-to-cart']"));
+        addButtom.click();
+  }
+ @And("User click checkout$")
+    public void clickCheckoutButton(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(16));
+        WebElement ProceedToCheckoutButton=driver.findElement(By.xpath("//a[contains(text(),'Proceed to checkout')]"));
+        ProceedToCheckoutButton.click();
+ }
+ //@And("User confirms address$")
+   // public void
+    //@And("User chose Prestashop "pick up in store"$")
+    //@And("User chose Pay by Check$")
+    //@And("User clicks "order with an obligation to pay"$")
+   // Then Save a screenshot of the order confirmation and the amount$")
+    //@And("Dodatkowe$")
 
 
 }

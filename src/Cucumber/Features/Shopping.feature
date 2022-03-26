@@ -15,8 +15,8 @@ Feature:Shopping and Pay by Check
     Then Save a screenshot of the order confirmation and the amount
     And  Dodatkowe
     Examples:
-      | size |
-      | M|
+      |size |count|
+      |M    |5   |
 
 
 

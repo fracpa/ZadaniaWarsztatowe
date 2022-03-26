@@ -14,8 +14,8 @@ Feature:Adding new addresses to the user https://mystore-testlab.coderslab.pl
     And  User delete address <alias>
     And The address is deleted
     Examples:
-      |alias                   |address                     |city       |zippostalcode  | country        |phone     |
-      |Adres korespondecyjny   |ul. Bohaterów Monte Cassino |Sopot      |81-767         | United Kingdom |987654321 |
+      |alias                   |address                     |city       |zippostalcode  |country        |phone     |
+      |Adres korespondecyjny   |ul. Bohaterów Monte Cassino |Sopot      |81-767         |United Kingdom |987654321 |
 
 
 
