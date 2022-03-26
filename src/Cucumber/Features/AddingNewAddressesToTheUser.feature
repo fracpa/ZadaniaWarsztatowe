@@ -11,9 +11,10 @@ Feature:Adding new addresses to the user https://mystore-testlab.coderslab.pl
     And User completes <alias>, <address>, <city>, <zippostalcode>, <country>, <phone>
     And  User click Save
     Then Added <alias> are correct
+    And  User delete address <alias>
+    And The address is deleted
     Examples:
       |alias                   |address                     |city       |zippostalcode  | country        |phone     |
-      |Adres domowy            |ul. Franciszkańska          |Warszawa   |00-200         | United Kingdom |123456789 |
       |Adres korespondecyjny   |ul. Bohaterów Monte Cassino |Sopot      |81-767         | United Kingdom |987654321 |
 
 

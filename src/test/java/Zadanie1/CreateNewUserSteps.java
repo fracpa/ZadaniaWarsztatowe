@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.internal.WebElementToJsonConverter;
+import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 import java.util.List;
@@ -103,17 +104,23 @@ public class CreateNewUserSteps {
     public void checkAddressData(String alias) {
         List<WebElement> aliasTrue = driver.findElements(By.xpath("//h4"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-               for (int i = 1; i <= aliasTrue.size()-1; i++) {
+        for (int i = 1; i <= aliasTrue.size() - 1; i++) {
             Assert.assertTrue(aliasTrue.get(i).getText().equals(alias));
 
         }
     }
+
+    @And("User delete address (.*)$")
+    public void deleteClick(String alias) {
+        WebElement delete = driver.findElement(By.xpath("//a[@data-link-action='delete-address']"));
+        delete.click();
+    }
+
+    @And("The address is deleted$")
+    public void checkDeleteAddress() {
+
+        WebElement successText = driver.findElement(By.xpath("//*[@id=\"notifications\"]/div/article/ul/li"));
+        Assert.assertEquals("Address successfully deleted!", successText.getText());
+            }
+
 }
-
-   // @And("User delete address (.*)$")
-   // public void deleteClick(String alias) {
-    //    WebElement delete = driver.findElement(By.xpath("//a[@data-link-action='delete-address']"));
-     //   delete.click();
-  //  }
-    //And Address <alias> is deleted
-
