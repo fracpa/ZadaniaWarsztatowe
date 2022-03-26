@@ -10,8 +10,7 @@ Feature:Adding new addresses to the user https://mystore-testlab.coderslab.pl
     And  User click in Create new address
     And User completes <alias>, <address>, <city>, <zippostalcode>, <country>, <phone>
     And  User click Save
-     Then Added <alias> are correct
-
+    Then Added <alias> are correct
     Examples:
       |alias                   |address                     |city       |zippostalcode  | country        |phone     |
       |Adres domowy            |ul. Franciszkańska          |Warszawa   |00-200         | United Kingdom |123456789 |

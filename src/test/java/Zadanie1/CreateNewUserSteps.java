@@ -68,7 +68,7 @@ public class CreateNewUserSteps {
     }
 
     @And("^User completes (.*), (.*), (.*),(.*), (.*), (.*)$")
-    public void completionOfAddressData(String alias, String address, String city,String zippostalcode, String country, String phoneNumber) {
+    public void completionOfAddressData(String alias, String address, String city, String zippostalcode, String country, String phoneNumber) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(16));
         WebElement aliasInput = driver.findElement(By.name("alias"));
         aliasInput.sendKeys(alias);
@@ -102,9 +102,18 @@ public class CreateNewUserSteps {
     @Then("Added (.*) are correct$")
     public void checkAddressData(String alias) {
         List<WebElement> aliasTrue = driver.findElements(By.xpath("//h4"));
-        for (WebElement address : aliasTrue) {
-            Assert.assertTrue(address.getText().equals(alias));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+               for (int i = 1; i <= aliasTrue.size()-1; i++) {
+            Assert.assertTrue(aliasTrue.get(i).getText().equals(alias));
 
         }
     }
 }
+
+   // @And("User delete address (.*)$")
+   // public void deleteClick(String alias) {
+    //    WebElement delete = driver.findElement(By.xpath("//a[@data-link-action='delete-address']"));
+     //   delete.click();
+  //  }
+    //And Address <alias> is deleted
+
