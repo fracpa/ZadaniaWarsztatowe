@@ -9,13 +9,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.internal.WebElementToJsonConverter;
-import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 import java.util.List;
 
-public class CreateNewUserSteps {
+public class ChangeofAddressSteps {
     private WebDriver driver;
 
 
@@ -121,6 +119,8 @@ public class CreateNewUserSteps {
 
         WebElement successText = driver.findElement(By.xpath("//*[@id=\"notifications\"]/div/article/ul/li"));
         Assert.assertEquals("Address successfully deleted!", successText.getText());
-            }
+    }
+
+
 
 }
