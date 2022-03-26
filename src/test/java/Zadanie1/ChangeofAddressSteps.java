@@ -16,6 +16,8 @@ import java.util.List;
 public class ChangeofAddressSteps {
     private WebDriver driver;
 
+   String email= "Paulinka1609@wp.pl";
+   String  password="Paulinaqwer";
 
     @Given("^Page (.*) opened in browser$")
     public void pageOpenedInBrowser(String pageUrl) {
@@ -30,14 +32,14 @@ public class ChangeofAddressSteps {
         signInButon.click();
     }
 
-    @And("^User completes Email (.*)$")
-    public void completesEmail(String email) {
+    @And("^User completes Email$")
+    public void completesEmail() {
         WebElement emailInput = driver.findElement(By.className("form-control"));
         emailInput.sendKeys(email);
     }
 
-    @And("^User completes Password (.*)$")
-    public void completesPassword(String password) {
+    @And("^User completes Password$")
+    public void completesPassword() {
         WebElement passwordInput = driver.findElement(By.name("password"));
         passwordInput.sendKeys(password);
     }
