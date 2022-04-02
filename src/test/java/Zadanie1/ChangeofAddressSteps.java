@@ -26,7 +26,7 @@ public class ChangeofAddressSteps {
         this.driver.get(pageUrl);
     }
 
-    @When("User click Sign in$")
+    @When("User clicks Sign in$")
     public void signInInputClick() {
         WebElement signInButon = driver.findElement(By.id("_desktop_user_info"));
         signInButon.click();
@@ -44,19 +44,19 @@ public class ChangeofAddressSteps {
         passwordInput.sendKeys(password);
     }
 
-    @And("^User click SignIn$")
+    @And("^User clicks SignIn$")
     public void signInClick() {
         WebElement signInButon2 = driver.findElement(By.id("submit-login"));
         signInButon2.click();
     }
 
-    @And("^User click Addresses$")
+    @And("^User clicks Addresses$")
     public void addressesClick() {
         WebElement addressesInput = driver.findElement(By.id("addresses-link"));
         addressesInput.click();
     }
 
-    @And("^User click in Create new address$")
+    @And("^User clicks in Create new address$")
     public void createNewAddressClick() {
         WebElement createNewAddress = driver.findElement(By.xpath("//a[@data-link-action='add-address']"));
         // / – rozpoczyna wyszukiwanie od element root
@@ -93,7 +93,7 @@ public class ChangeofAddressSteps {
         Assert.assertNotNull(phoneInput);
     }
 
-    @And("User click Save$")
+    @And("User clicks Save$")
     public void saveClick() {
         WebElement saveButton = driver.findElement(By.xpath("//section[@id='content']//button"));
         saveButton.click();
@@ -110,7 +110,7 @@ public class ChangeofAddressSteps {
         }
     }
 
-    @And("User delete address (.*)$")
+    @And("User deletes address (.*)$")
     public void deleteClick(String alias) {
         WebElement delete = driver.findElement(By.xpath("//a[@data-link-action='delete-address']"));
         delete.click();

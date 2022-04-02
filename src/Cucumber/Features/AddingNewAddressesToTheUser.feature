@@ -2,16 +2,16 @@ Feature:Adding new addresses to the user https://mystore-testlab.coderslab.pl
 
   Scenario Outline: Adding new addresses to the user  https://mystore-testlab.coderslab.pl
      Given  Page https://mystore-testlab.coderslab.pl opened in browser
-    When User click Sign in
+    When User clicks Sign in
     And  User completes Email
     And  User completes Password
-    And  User click SignIn
-    And  User click Addresses
-    And  User click in Create new address
+    And  User clicks SignIn
+    And  User clicks Addresses
+    And  User clicks in Create new address
     And User completes <alias>, <address>, <city>, <zippostalcode>, <country>, <phone>
-    And  User click Save
+    And  User clicks Save
     Then Added <alias> are correct
-    And  User delete address <alias>
+    And  User deletes address <alias>
     And The address is deleted
     Examples:
       |alias                   |address                     |city       |zippostalcode  |country        |phone     |
