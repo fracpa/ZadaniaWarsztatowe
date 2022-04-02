@@ -47,7 +47,9 @@ public class ShoppingSteps {
         WebElement searchInput = driver.findElement(By.name("s"));
         searchInput.sendKeys(product);
         searchInput.submit();
-        WebElement chooseProduct = driver.findElement(By.xpath("//*[@id=\"js-product-list\"]/div[1]/article[1]/div/div[1]/h2/a"));
+        WebElement discount= driver.findElement(By.xpath("//*[@id=\"js-product-list\"]/div[1]/article[1]/div/div[1]/div/span[3]"));
+        Assert.assertTrue(discount.getText().equals("-20%"));
+        WebElement chooseProduct = driver.findElement(By.xpath("//a[contains(text(),'Hummingbird printed sweater')]"));
         chooseProduct.click();
     }
 
