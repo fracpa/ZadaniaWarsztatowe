@@ -98,7 +98,7 @@ public class ChangeofAddressSteps {
 
     @And("User clicks Save$")
     public void saveClick() {
-        WebElement saveButton = driver.findElement(By.xpath("//section[@id='content']//button"));
+        WebElement saveButton =driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
         saveButton.click();
     }
 
@@ -128,7 +128,7 @@ public class ChangeofAddressSteps {
     @And("The address is deleted$")
     public void checkDeleteAddress() {
 
-        WebElement successText = driver.findElement(By.xpath("//*[@id=\"notifications\"]/div/article/ul/li"));
+        WebElement successText = driver.findElement(By.xpath("//li[contains(text(),'Address successfully deleted!')]"));
         Assert.assertEquals("Address successfully deleted!", successText.getText());
     }
 
