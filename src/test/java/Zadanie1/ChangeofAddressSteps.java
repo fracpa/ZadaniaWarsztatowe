@@ -5,19 +5,22 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class ChangeofAddressSteps {
     private WebDriver driver;
 
-   String email= "Paulinka1609@wp.pl";
-   String  password="Paulinaqwer";
+    String email = "Paulinka1609@wp.pl";
+    String password = "Paulinaqwer";
 
     @Given("^Page (.*) opened in browser$")
     public void pageOpenedInBrowser(String pageUrl) {
@@ -99,7 +102,12 @@ public class ChangeofAddressSteps {
         saveButton.click();
     }
 
-
+    @And ("Save a screenshot of the order confirmation and the amount$")
+    public void saveScreenshot() throws IOException {
+        File tmpScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String currentDateTime = LocalDateTime.now().toString().replaceAll(":", "_");
+        Files.copy(tmpScreenshot.toPath(), Paths.get("C:", "Zadanie1", "add_adress" + currentDateTime + ".png"));
+    }
     @Then("Added (.*) are correct$")
     public void checkAddressData(String alias) {
         List<WebElement> aliasTrue = driver.findElements(By.xpath("//h4"));
@@ -112,7 +120,8 @@ public class ChangeofAddressSteps {
 
     @And("User deletes address (.*)$")
     public void deleteClick(String alias) {
-        WebElement delete = driver.findElement(By.xpath("//a[@data-link-action='delete-address']"));
+       // WebElement delete = driver.findElement(By.xpath("//a[@data-link-action='delete-address']"));
+        WebElement delete = driver.findElement(By.xpath("//div[./h4[contains(text(),'" + alias + "')]]/following-sibling::div/a[@data-link-action='delete-address']"));
         delete.click();
     }
 
@@ -123,6 +132,10 @@ public class ChangeofAddressSteps {
         Assert.assertEquals("Address successfully deleted!", successText.getText());
     }
 
+    @And("Close browser")
+    public void closeBrowser() {
+        this.driver.quit();
+    }
 
 
 }
