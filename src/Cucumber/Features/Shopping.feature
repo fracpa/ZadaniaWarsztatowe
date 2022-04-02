@@ -7,16 +7,17 @@ Feature:Shopping and Pay by Check
     And  User chose size <size>
     And  User chose <count> products
     And  User add products to the shopping card
-    And  User click checkout
+    And  User click Proceed to checkout
     And  User confirms address
-    And User chose Prestashop "pick up in store"
+    And User chose Prestashop
     And  User chose Pay by Check
+    And User agree to the terms of service
     And  User clicks "order with an obligation to pay"
     Then Save a screenshot of the order confirmation and the amount
-    And  Dodatkowe
-    Examples:
+    And Close browser
+     Examples:
       |size |count|
-      |M    |5   |
+      |L    |2    |
 
 
 
